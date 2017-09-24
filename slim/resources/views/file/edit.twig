@@ -1,0 +1,54 @@
+{% extends 'layouts/app.twig' %}
+
+{% block style %}
+
+<style>
+
+  main {
+    padding: 0;
+  }
+
+</style>
+
+{% endblock %}
+
+{% block inner_header %}
+
+<div class="edit-header">
+  <h2>Name: {{ file.name }}</h2>
+  <div class="break"></div>
+  <ul class="tools-wrapper">
+    <li><a href="{{ path_for('raw', { name: file.name }) }}"><i class="fa fa-eye" aria-hidden="true"><span>Raw</span></i></a></li>
+    <li><a href="{{ path_for('load', { name: file.name }) }}"><i class="fa fa-file" aria-hidden="true"><span>File</span></i></a></li>
+    <li><a class="copy-btn" href="#" data-clipboard-target=".copy-text-target"><i class="fa fa-clipboard" aria-hidden="true"><span>Copy</span></i></a></li>
+    <li><a href="#" data-remodal-target="modal-change-password"><i class="fa fa-lock" aria-hidden="true"><span>Password</span></i></a></li>
+    <li><a class="delete-btn" href="#" data-remodal-target="modal-delete"><i class="fa fa-trash" aria-hidden="true"><span>Delete</span></i></a></li>
+  </ul>
+  <div class="msg-wrapper" style="display:none">
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"><span class="msg">{{ msg.0 }}</span></i>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block main_content %}
+
+<i class="more-less-btn fa fa-minus-square fa-3x" aria-hidden="true" title="Show less"></i>
+<form class="edit-form" method="post">
+  <textarea class="text-input copy-text-target" name="text" onkeyup="jqAjaxUpdateText()">{{ file.text }}</textarea>
+  <input class="update-name-input" type="hidden" name="name" value="{{ file.name }}">
+  <div class="loading-wrapper edit-loading-wrapper" style="display:none">
+    <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+  </div>
+  <div class="status-wrapper edit-status-wrapper" style="display:none"></div>
+</form>
+
+{% endblock %}
+
+{% block modals %}
+
+{% include 'modals/change_password.twig' %}
+{% include 'modals/check_password.twig' %}
+{% include 'modals/delete.twig' %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>OpenPad</title>
+    <meta name="description" content="OpenPad. Share texts without login">
+    <meta name="author" content="guizo">
+    <meta name="keywords" content="guizo, guizoxxv, openpad">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="icon" href="/img/guizo-favicon.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.4.1/hint.min.css" integrity="sha256-7KczUWqIa/6KaIKtNfG18eilVQR4vJ4S9SSiDAplUwc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" integrity="sha256-NIskOH7eNIjyJFpUeh3DlE9n1amcG/bzVKbWxuIgiH4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/remodal-default-theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    {% block style %}{% endblock %}
+  </head>
+
+  <body>
+
+    <header>
+      <div class="title-wrapper">
+        <a href="{{ path_for('home') }}">
+          <h1>OpenPad</h1>
+          <p>Share texts without login</p>
+        </a>
+      </div>
+    </header>
+
+    {% block inner_header %}{% endblock %}
+
+    <main>
+      {% block main_content %}{% endblock %}
+    </main>
+
+    <footer>
+      <p id="footnote"><i class="fa fa-code" aria-hidden="true"></i> with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://guizo-portfolio.kissr.com/" target="_blank" title="guizo portfolio">guizo</a>. View on <a href="https://github.com/guizoxxv/quizit">GitHub <i class="fa fa-github" aria-hidden="true"></i></a></p>
+    </footer>
+
+    {% block modals %}{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js" integrity="sha256-El0fEiD3YOM7uIVZztyQzmbbPlgEj0oJVxRWziUh4UE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js" integrity="sha256-tR7fz2fCeycqI9/V8mL9nyTc4lI14kg2Qm6zZHuupxE=" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/ajax.js"></script>
+
+  </body>
+</html>
