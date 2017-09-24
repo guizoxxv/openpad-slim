@@ -1,0 +1,23 @@
+{% extends 'layouts/app.twig' %}
+
+{% block main_content %}
+
+<h2>Name: {{ file.name }} </h2>
+<div class="break"></div>
+<ul class="tools-wrapper">
+  <li><a href="{{ path_for('raw', { name: file.name }) }}"><i class="fa fa-eye" aria-hidden="true"><span>Raw</span></i></a></li>
+  <li><a href="{{ path_for('password_isset', { name: file.name }) }}"><i class="fa fa-pencil" aria-hidden="true"><span>Edit</span></i></a></li>
+  <li><a class="copy-btn" href="#" data-clipboard-target=".copy-text-target"><i class="fa fa-clipboard" aria-hidden="true"><span>Copy</span></i></a></li>
+</ul>
+<div class="break"></div>
+<div class="text-wrapper">
+  <pre class="file-pre copy-text-target">{{ file.text }}</pre> <!-- Do not use identation markup with pre -->
+</div>
+
+{% endblock %}
+
+{% block modals %}
+
+{% include 'modals/check_password.twig' %}
+
+{% endblock %}
