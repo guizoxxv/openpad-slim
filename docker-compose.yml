@@ -1,25 +1,18 @@
 version: "3"
 services:
-  openpad-slim-app:
-    container_name: openpad-slim-app
-    image: openpad-slim-app
-    build:
-      context: ./
-      dockerfile: app.dockerfile
+  app:
+    image: guizo/docker-laravel
     ports:
       - 8083:80
     volumes:
-      - ./slim:/var/www/html
+      - ./:/var/www/html
     environment:
       - TZ=America/Sao_Paulo
-  openpad-slim-db:
-    container_name: openpad-slim-db
-    image: mysql:5.7.18
+  db:
+    image: mysql:5.7
     ports:
-      - "33063:3306"
-    volumes:
-      - ./mysql:/var/lib/mysql
+      - 33063:3306
     environment:
       - TZ=America/Sao_Paulo
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=openpad-slim-db
+      - MYSQL_DATABASE=openpad-slim

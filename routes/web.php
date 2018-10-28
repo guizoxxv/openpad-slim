@@ -24,4 +24,9 @@ $app->group('/file', function() {
 
 // TODO: Padronizar (-) para (_). Ex: check-password para check_password
 
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
+  $handler = $this->notFoundHandler; // handle using the default Slim page not found handler
+  return $handler($req, $res);
+});
+
 ?>
